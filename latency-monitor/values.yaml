@@ -10,11 +10,11 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+env: {}
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
-env: {}
 
 serviceAccount:
   # Specifies whether a service account should be created
