@@ -4,6 +4,10 @@ metadata:
   name: {{ include "discovery-platform.fullname" . }}
   labels:
     {{- include "discovery-platform.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 2 }}
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:
