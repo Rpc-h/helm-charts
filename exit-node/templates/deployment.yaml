@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "rpch-node.fullname" . }}
+  name: {{ include "exit-node.fullname" . }}
   labels:
-    {{- include "rpch-node.labels" . | nindent 4 }}
+    {{- include "exit-node.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "rpch-node.selectorLabels" . | nindent 6 }}
+      {{- include "exit-node.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "rpch-node.selectorLabels" . | nindent 8 }}
+        {{- include "exit-node.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "rpch-node.serviceAccountName" . }}
+      serviceAccountName: {{ include "exit-node.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
