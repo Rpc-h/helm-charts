@@ -10,9 +10,7 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.90.68@sha256:aa32cf496307a2f92d6aa965913e6e1c156b2bd5c9b41ae3657c9dfdf1d8c651"
 
-env:
-  - name: HOPRD_API_TOKEN
-    value: "^^awesomeHOPRr3l4y^^"
+env: []
 
 imagePullSecrets: []
 nameOverride: ""
