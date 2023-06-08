@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: sitilge/availability-monitor
+  repository: [sitilge/availability-monitor](repository: europe-west6-docker.pkg.dev/rpch-375921/rpch/availability-monitor)
   pullPolicy: IfNotPresent
   tag: ""
 
