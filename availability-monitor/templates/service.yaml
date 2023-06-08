@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "availability-monitor.fullname" . }}
+  labels:
+    {{- include "availability-monitor.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      name: {{ .Values.service.name }}
+      targetPort: {{ .Values.service.name }}
+      protocol: TCP
+  selector:
+    {{- include "availability-monitor.selectorLabels" . | nindent 4 }}
