@@ -40,6 +40,10 @@ spec:
               value: {{ $key.value | quote }}
           {{- end }}
           {{- end }}
+          {{- if .Values.envFrom }}
+          envFrom:
+            {{- toYaml .Values.envFrom | nindent 12 }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
